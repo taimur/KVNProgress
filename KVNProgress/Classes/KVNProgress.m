@@ -723,7 +723,7 @@ static KVNProgressConfiguration *configuration;
 	self.checkmarkLayer = [CAShapeLayer layer];
 	self.checkmarkLayer.path = checkmarkPath.CGPath;
 	self.checkmarkLayer.fillColor = nil;
-	self.checkmarkLayer.strokeColor = self.configuration.successColor.CGColor;
+  self.checkmarkLayer.strokeColor = [UIColor colorWithRed:0.01 green:0.87 blue:0.68 alpha:1].CGColor;//self.configuration.successColor.CGColor;
 	self.checkmarkLayer.lineWidth = self.configuration.lineWidth;
 	
 	[self.circleProgressView.layer addSublayer:self.circleProgressLineLayer];
@@ -1190,7 +1190,8 @@ static KVNProgressConfiguration *configuration;
 
 - (void)animateSuccess
 {
-	[self animateFullCircleWithColor:self.configuration.successColor];
+  
+	[self animateFullCircleWithColor:[UIColor colorWithRed:0.93 green:0.94 blue:0.95 alpha:1]];
 	
 	CABasicAnimation *checkmarkAnimation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
 	checkmarkAnimation.duration = KVNCheckmarkAnimationDuration;

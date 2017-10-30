@@ -21,17 +21,18 @@
 		_fullScreen = NO;
 		_showStop = NO;
 		
-		_circleStrokeForegroundColor = [UIColor darkGrayColor];
+		_circleStrokeForegroundColor = [UIColor colorWithRed:0.93 green:0.94 blue:0.95 alpha:1];
+    
 		_circleStrokeBackgroundColor = [_circleStrokeForegroundColor colorWithAlphaComponent:0.3f];
 		_circleFillBackgroundColor = [UIColor clearColor];
 		_circleSize = (_fullScreen) ? 90.0f : 75.0f;
 		_stopRelativeHeight = 0.3;
-		_lineWidth = 2.0f;
+		_lineWidth = 4.0f;
 		
-		_statusColor = [UIColor darkGrayColor];
-		_statusFont = [UIFont systemFontOfSize:17.0f];
+		_statusColor = [UIColor colorWithRed:0.17 green:0.18 blue:0.18 alpha:1];
+		_statusFont = [UIFont fontWithName:@"ProximaNova-Semibold" size:15];
 		
-		_successColor = [_statusColor copy];
+		_successColor = [_successColor copy];
 		_errorColor = [_statusColor copy];
         _stopColor = [_statusColor copy];
 		
@@ -70,7 +71,7 @@
 	
 	copy.successColor = [self.successColor copy];
 	copy.errorColor = [self.errorColor copy];
-    copy.stopColor = [self.stopColor copy];
+  copy.stopColor = [self.stopColor copy];
 	
 	copy.minimumDisplayTime = self.minimumDisplayTime;
 	copy.minimumSuccessDisplayTime = self.minimumSuccessDisplayTime;
