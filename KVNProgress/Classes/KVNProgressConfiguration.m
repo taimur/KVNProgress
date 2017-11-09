@@ -30,7 +30,7 @@
 		_lineWidth = 4.0f;
 		
 		_statusColor = [UIColor colorWithRed:0.17 green:0.18 blue:0.18 alpha:1];
-		_statusFont = [UIFont fontWithName:@"ProximaNova-Semibold" size:15];
+		_statusFont = [UIFont fontWithName:@"ProximaNova-Semibold" size:17];
 		
 		_successColor = [_successColor copy];
 		_errorColor = [_statusColor copy];

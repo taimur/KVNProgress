@@ -39,8 +39,8 @@ static CGFloat const KVNProgressIndeterminate = CGFLOAT_MAX;
 static CGFloat const KVNCircleProgressViewToStatusLabelVerticalSpaceConstraintConstant = 20.0f;
 static CGFloat const KVNContentViewFullScreenModeLeadingAndTrailingSpaceConstraintConstant = 0.0f;
 static CGFloat const KVNContentViewNotFullScreenModeLeadingAndTrailingSpaceConstraintConstant = 25.0f;
-static CGFloat const KVNContentViewWithStatusInset = 10.0f;
-static CGFloat const KVNContentViewWithoutStatusInset = 20.0f;
+static CGFloat const KVNContentViewWithStatusInset = 26.0f;
+static CGFloat const KVNContentViewWithoutStatusInset = 26.0f;
 static CGFloat const KVNContentViewCornerRadius = 8.0f;
 static CGFloat const KVNContentViewWithoutStatusCornerRadius = 15.0f;
 static CGFloat const KVNAlertViewWidth = 270.0f;
@@ -661,10 +661,10 @@ static KVNProgressConfiguration *configuration;
 														   clockwise:YES];
 	
 	self.circleProgressLineLayer = [CAShapeLayer layer];
-	self.circleProgressLineLayer.path = circlePath.CGPath;
+	//self.circleProgressLineLayer.path = circlePath.CGPath;
 	self.circleProgressLineLayer.strokeColor = self.configuration.circleStrokeForegroundColor.CGColor;
 	self.circleProgressLineLayer.fillColor = self.configuration.circleFillBackgroundColor.CGColor;
-	self.circleProgressLineLayer.lineWidth = self.configuration.lineWidth;
+	self.circleProgressLineLayer.lineWidth = self.configuration.lineWidth + 2.0;
 	
 	[self.circleProgressView.layer addSublayer:self.circleProgressLineLayer];
 	
@@ -710,7 +710,7 @@ static KVNProgressConfiguration *configuration;
 
 - (void)setupSuccessUI
 {
-	[self setupFullRoundCircleWithColor:self.configuration.successColor];
+	[self setupFullRoundCircleWithColor:self.configuration.circleStrokeForegroundColor];
 	
     self.stopLayer.opacity = 0.0f;
 
@@ -718,16 +718,23 @@ static KVNProgressConfiguration *configuration;
 	[checkmarkPath moveToPoint:CGPointMake(CGRectGetWidth(self.circleProgressView.bounds) * 0.28f, CGRectGetHeight(self.circleProgressView.bounds) * 0.53f)];
 	[checkmarkPath addLineToPoint:CGPointMake(CGRectGetWidth(self.circleProgressView.bounds) * 0.42f, CGRectGetHeight(self.circleProgressView.bounds) * 0.66f)];
 	[checkmarkPath addLineToPoint:CGPointMake(CGRectGetWidth(self.circleProgressView.bounds) * 0.72f, CGRectGetHeight(self.circleProgressView.bounds) * 0.36f)];
-	checkmarkPath.lineCapStyle = kCGLineCapSquare;
+	checkmarkPath.lineCapStyle = kCGLineJoinRound;
 	
 	self.checkmarkLayer = [CAShapeLayer layer];
 	self.checkmarkLayer.path = checkmarkPath.CGPath;
 	self.checkmarkLayer.fillColor = nil;
   self.checkmarkLayer.strokeColor = [UIColor colorWithRed:0.01 green:0.87 blue:0.68 alpha:1].CGColor;//self.configuration.successColor.CGColor;
-	self.checkmarkLayer.lineWidth = self.configuration.lineWidth;
-	
+	self.checkmarkLayer.lineWidth = self.configuration.lineWidth + 2.0;
+  self.checkmarkLayer.cornerRadius = KVNContentViewWithoutStatusCornerRadius;
+  
 	[self.circleProgressView.layer addSublayer:self.circleProgressLineLayer];
 	[self.circleProgressView.layer addSublayer:self.checkmarkLayer];
+  self.circleProgressView.layer.cornerRadius = KVNContentViewWithoutStatusCornerRadius;
+  
+  UIImageView *imageView = [[UIImageView alloc] init];
+  imageView.image = [UIImage imageNamed:@"checkmark"];
+  [self.circleProgressView addSubview:imageView];
+  [self.circleProgressView bringSubviewToFront:imageView];
 	
 	[self.circleProgressLineLayer removeAllAnimations];
 	[self.circleProgressView.layer removeAllAnimations];
@@ -814,7 +821,7 @@ static KVNProgressConfiguration *configuration;
 	self.circleProgressLineLayer.path = circlePath.CGPath;
 	self.circleProgressLineLayer.strokeColor = color.CGColor;
 	self.circleProgressLineLayer.fillColor = self.configuration.circleFillBackgroundColor.CGColor;
-	self.circleProgressLineLayer.lineWidth = self.configuration.lineWidth;
+	self.circleProgressLineLayer.lineWidth = self.configuration.lineWidth + 2.0;
 }
 
 - (void)setupStatus:(NSString *)status
