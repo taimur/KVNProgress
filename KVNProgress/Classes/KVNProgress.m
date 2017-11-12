@@ -997,8 +997,18 @@ static KVNProgressConfiguration *configuration;
 		self.contentView.layer.masksToBounds = YES;
 		self.contentView.contentMode = UIViewContentModeCenter;
 		self.contentView.backgroundColor = self.configuration.backgroundFillColor;
-		
-		self.contentView.image = backgroundImage;
+    
+    //self.contentView.image = backgroundImage;
+    self.contentView.layer.cornerRadius = 12;
+    
+    UIBezierPath *shadowPath = [UIBezierPath bezierPathWithRect:self.contentView.bounds];
+    self.contentView.layer.masksToBounds = NO;
+    self.contentView.layer.shadowColor = [[UIColor colorWithRed:0 green:0 blue:0 alpha:0.24] CGColor];
+    self.contentView.layer.shadowOffset = CGSizeMake(0, 24);
+    self.contentView.layer.shadowOpacity = 1.0f;
+    self.contentView.layer.shadowRadius = 80;
+    self.contentView.layer.shadowPath = shadowPath.CGPath;
+    
 	}
 }
 
