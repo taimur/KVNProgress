@@ -719,9 +719,10 @@ static KVNProgressConfiguration *configuration;
 	[checkmarkPath addLineToPoint:CGPointMake(CGRectGetWidth(self.circleProgressView.bounds) * 0.42f, CGRectGetHeight(self.circleProgressView.bounds) * 0.66f)];
 	[checkmarkPath addLineToPoint:CGPointMake(CGRectGetWidth(self.circleProgressView.bounds) * 0.72f, CGRectGetHeight(self.circleProgressView.bounds) * 0.36f)];
 	checkmarkPath.lineCapStyle = kCGLineJoinRound;
+  checkmarkPath.lineJoinStyle = kCGLineJoinRound;
 	
 	self.checkmarkLayer = [CAShapeLayer layer];
-	//self.checkmarkLayer.path = checkmarkPath.CGPath;
+	self.checkmarkLayer.path = checkmarkPath.CGPath;
 	self.checkmarkLayer.fillColor = nil;
   self.checkmarkLayer.strokeColor = [UIColor colorWithRed:0.01 green:0.87 blue:0.68 alpha:1].CGColor;//self.configuration.successColor.CGColor;
 	self.checkmarkLayer.lineWidth = self.configuration.lineWidth + 2.0;
@@ -1004,7 +1005,7 @@ static KVNProgressConfiguration *configuration;
     self.contentView.layer.shadowRadius = 80;
     self.contentView.layer.shadowPath = shadowPath.CGPath;
     
-    UIImage *imgCheckMark = [UIImage imageNamed:@"checkmark"];
+    /*UIImage *imgCheckMark = [UIImage imageNamed:@"checkmark"];
     UIImageView *imgView = [[UIImageView alloc] initWithImage:imgCheckMark];
     imgView.center = self.backgroundImageView.center;
     
@@ -1012,7 +1013,8 @@ static KVNProgressConfiguration *configuration;
                                  self.backgroundImageView.center.y/2 - (self.circleProgressView.frame.size.height + self.circleProgressView.frame.size.height/3));
     NSLog(@"\nx: %f\ny: %f",imgView.center.x,imgView.center.y);
     
-    [self.contentView addSubview:imgView];
+    [self.contentView addSubview:imgView];*/
+    self.checkmarkLayer.cornerRadius = KVNContentViewWithoutStatusCornerRadius;
     
 	}
 }
