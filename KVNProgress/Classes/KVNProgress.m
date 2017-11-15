@@ -722,7 +722,7 @@ static KVNProgressConfiguration *configuration;
   checkmarkPath.lineJoinStyle = kCGLineJoinRound;
 	
 	self.checkmarkLayer = [CAShapeLayer layer];
-	self.checkmarkLayer.path = checkmarkPath.CGPath;
+	//self.checkmarkLayer.path = checkmarkPath.CGPath;
 	self.checkmarkLayer.fillColor = nil;
   self.checkmarkLayer.strokeColor = [UIColor colorWithRed:0.01 green:0.87 blue:0.68 alpha:1].CGColor;//self.configuration.successColor.CGColor;
 	self.checkmarkLayer.lineWidth = self.configuration.lineWidth + 2.0;
@@ -1005,15 +1005,33 @@ static KVNProgressConfiguration *configuration;
     self.contentView.layer.shadowRadius = 80;
     self.contentView.layer.shadowPath = shadowPath.CGPath;
     
-    /*UIImage *imgCheckMark = [UIImage imageNamed:@"checkmark"];
+    CGFloat xDisp = 3;
+    CGFloat yDisp = 20.0;
+    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+    {
+      
+      CGSize result = [[UIScreen mainScreen] bounds].size;
+      if(result.height == 480) {
+        xDisp = 27;
+        yDisp = -22.0;
+      }
+      if(result.height == 568) {
+        xDisp = 27;
+        yDisp = -22.0;
+      }
+      if(result.height == 667) {
+        xDisp = 13;
+        yDisp = 2.0;
+      }
+    }
+    UIImage *imgCheckMark = [UIImage imageNamed:@"checkmark-icon"];
     UIImageView *imgView = [[UIImageView alloc] initWithImage:imgCheckMark];
     imgView.center = self.backgroundImageView.center;
     
-    imgView.center = CGPointMake(self.backgroundImageView.center.x/2 + self.circleProgressView.frame.size.width/2 + 2.5,
-                                 self.backgroundImageView.center.y/2 - (self.circleProgressView.frame.size.height + self.circleProgressView.frame.size.height/3));
-    NSLog(@"\nx: %f\ny: %f",imgView.center.x,imgView.center.y);
+    imgView.center = CGPointMake(self.backgroundImageView.center.x/2 + self.circleProgressView.frame.size.width/2 + xDisp,
+                                 self.backgroundImageView.center.y/2 - (self.circleProgressView.frame.size.height*2 + yDisp));
     
-    [self.contentView addSubview:imgView];*/
+    [self.contentView addSubview:imgView];
     self.checkmarkLayer.cornerRadius = KVNContentViewWithoutStatusCornerRadius;
     
 	}
