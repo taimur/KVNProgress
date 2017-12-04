@@ -64,6 +64,7 @@ static KVNProgressConfiguration *configuration;
 @property (nonatomic, weak) IBOutlet UIView *circleProgressView;
 @property (nonatomic, weak) IBOutlet UILabel *statusLabel;
 @property (nonatomic, weak) IBOutlet UIImageView *backgroundImageView;
+@property (nonatomic, strong) UIImageView *imgViewCheckMark;
 
 @property (nonatomic, strong) CAShapeLayer *checkmarkLayer;
 @property (nonatomic, strong) CAShapeLayer *crossLayer;
@@ -397,7 +398,7 @@ static KVNProgressConfiguration *configuration;
 	self.fullScreen = fullScreen;
 	
 	self.accessibilityValue = @"displayed";
-
+  
 	// If HUD is already added to the view we just update the UI
 	if ([self.class isVisible]) {
 		self.state = KVNProgressStateShowed;
@@ -671,6 +672,7 @@ static KVNProgressConfiguration *configuration;
 	[self.circleProgressLineLayer removeAllAnimations];
 	[self.circleProgressView.layer removeAllAnimations];
 	[self animateCircleWithInfiniteLoop];
+  self.imgViewCheckMark.hidden = true;
 }
 
 - (void)setupProgressCircle
@@ -764,6 +766,7 @@ static KVNProgressConfiguration *configuration;
 	[self.circleProgressView.layer removeAllAnimations];
 	[self.crossLayer removeAllAnimations];
 	[self animateError];
+  self.imgViewCheckMark.hidden = true;
 }
 
 - (void)setupStopUI
@@ -799,6 +802,8 @@ static KVNProgressConfiguration *configuration;
 	
 	[self.circleProgressLineLayer removeAllAnimations];
 	[self.circleProgressView.layer removeAllAnimations];
+  self.imgViewCheckMark.hidden = true;
+
 }
 
 - (void)setupFullRoundCircleWithColor:(UIColor *)color
@@ -1010,30 +1015,46 @@ static KVNProgressConfiguration *configuration;
     if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
     {
       
-      CGSize result = [[UIScreen mainScreen] bounds].size;
-      if(result.height == 480) {
-        xDisp = 27;
-        yDisp = -22.0;
-      }
-      if(result.height == 568) {
-        xDisp = 27;
-        yDisp = -22.0;
-      }
-      if(result.height == 667) {
-        xDisp = 13;
-        yDisp = 2.0;
-      }
+        CGSize result = [[UIScreen mainScreen] bounds].size;
+        if ( result.height == 480 ) {
+          
+          xDisp = 27;
+          yDisp = -22.0;
+        }
+      
+        if ( result.height == 568 ) {
+          xDisp = 27;
+          yDisp = -22.0;
+        }
+      
+        if ( result.height == 667 ) {
+          
+          xDisp = 13;
+          yDisp = 2.0;
+        }
+      
+        if ( result.height == 812 ) {
+          
+          xDisp = 13.0;
+          yDisp = 38.0;
+        }
     }
-    UIImage *imgCheckMark = [UIImage imageNamed:@"checkmark-icon"];
-    UIImageView *imgView = [[UIImageView alloc] initWithImage:imgCheckMark];
-    imgView.center = self.backgroundImageView.center;
     
-    imgView.center = CGPointMake(self.backgroundImageView.center.x/2 + self.circleProgressView.frame.size.width/2 + xDisp,
+    UIImage *imgCheckMark = [UIImage imageNamed:@"checkmark-icon"];
+    self.imgViewCheckMark = [[UIImageView alloc] initWithImage:imgCheckMark];
+    self.imgViewCheckMark.center = self.backgroundImageView.center;
+    
+    self.imgViewCheckMark.center = CGPointMake(self.backgroundImageView.center.x/2 + self.circleProgressView.frame.size.width/2 + xDisp,
                                  self.backgroundImageView.center.y/2 - (self.circleProgressView.frame.size.height*2 + yDisp));
     
-    [self.contentView addSubview:imgView];
+    [self.contentView addSubview:self.imgViewCheckMark];
     self.checkmarkLayer.cornerRadius = KVNContentViewWithoutStatusCornerRadius;
     
+    if (self.style == KVNProgressStyleSuccess) {
+      self.imgViewCheckMark.hidden = false;
+    } else {
+      self.imgViewCheckMark.hidden = true;
+    }
 	}
 }
 
