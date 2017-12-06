@@ -673,6 +673,9 @@ static KVNProgressConfiguration *configuration;
 	[self.circleProgressView.layer removeAllAnimations];
 	[self animateCircleWithInfiniteLoop];
   self.imgViewCheckMark.hidden = true;
+  [self.imgViewCheckMark removeFromSuperview];
+  [self.contentView setNeedsLayout];
+  
 }
 
 - (void)setupProgressCircle
@@ -738,6 +741,10 @@ static KVNProgressConfiguration *configuration;
 	[self.circleProgressView.layer removeAllAnimations];
 	[self.checkmarkLayer removeAllAnimations];
 	[self animateSuccess];
+  self.imgViewCheckMark.hidden = false;
+  dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    self.imgViewCheckMark.hidden = true;
+  });
 }
 
 - (void)setupErrorUI
@@ -767,6 +774,8 @@ static KVNProgressConfiguration *configuration;
 	[self.crossLayer removeAllAnimations];
 	[self animateError];
   self.imgViewCheckMark.hidden = true;
+  [self.imgViewCheckMark removeFromSuperview];
+  [self.contentView setNeedsLayout];
 }
 
 - (void)setupStopUI
@@ -803,7 +812,8 @@ static KVNProgressConfiguration *configuration;
 	[self.circleProgressLineLayer removeAllAnimations];
 	[self.circleProgressView.layer removeAllAnimations];
   self.imgViewCheckMark.hidden = true;
-
+  [self.imgViewCheckMark removeFromSuperview];
+  [self.contentView setNeedsLayout];
 }
 
 - (void)setupFullRoundCircleWithColor:(UIColor *)color
@@ -853,7 +863,12 @@ static KVNProgressConfiguration *configuration;
 		
 		return; // No reload of background when view is showing
 	}
-	
+  
+  UIImage *imgCheckMark = [UIImage imageNamed:@"checkmark-icon"];
+  self.imgViewCheckMark = [[UIImageView alloc] initWithImage:imgCheckMark];
+  self.imgViewCheckMark.center = self.backgroundImageView.center;
+  self.imgViewCheckMark.hidden = true;
+  
 	[self updateBackground];
 	
 	KVNPrepareBlockSelf();
@@ -1040,21 +1055,12 @@ static KVNProgressConfiguration *configuration;
         }
     }
     
-    UIImage *imgCheckMark = [UIImage imageNamed:@"checkmark-icon"];
-    self.imgViewCheckMark = [[UIImageView alloc] initWithImage:imgCheckMark];
-    self.imgViewCheckMark.center = self.backgroundImageView.center;
-    
     self.imgViewCheckMark.center = CGPointMake(self.backgroundImageView.center.x/2 + self.circleProgressView.frame.size.width/2 + xDisp,
                                  self.backgroundImageView.center.y/2 - (self.circleProgressView.frame.size.height*2 + yDisp));
     
     [self.contentView addSubview:self.imgViewCheckMark];
     self.checkmarkLayer.cornerRadius = KVNContentViewWithoutStatusCornerRadius;
-    
-    if (self.style == KVNProgressStyleSuccess) {
-      self.imgViewCheckMark.hidden = false;
-    } else {
-      self.imgViewCheckMark.hidden = true;
-    }
+    self.imgViewCheckMark.hidden = true;
 	}
 }
 
