@@ -1025,38 +1025,10 @@ static KVNProgressConfiguration *configuration;
     self.contentView.layer.shadowRadius = 80;
     self.contentView.layer.shadowPath = shadowPath.CGPath;
     
-    CGFloat xDisp = 3;
-    CGFloat yDisp = 20.0;
-    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
-    {
-      
-        CGSize result = [[UIScreen mainScreen] bounds].size;
-        if ( result.height == 480 ) {
-          
-          xDisp = 27;
-          yDisp = -22.0;
-        }
-      
-        if ( result.height == 568 ) {
-          xDisp = 27;
-          yDisp = -22.0;
-        }
-      
-        if ( result.height == 667 ) {
-          
-          xDisp = 13;
-          yDisp = 2.0;
-        }
-      
-        if ( result.height == 812 ) {
-          
-          xDisp = 13.0;
-          yDisp = 38.0;
-        }
-    }
-    
-    self.imgViewCheckMark.center = CGPointMake(self.backgroundImageView.center.x/2 + self.circleProgressView.frame.size.width/2 + xDisp,
-                                 self.backgroundImageView.center.y/2 - (self.circleProgressView.frame.size.height*2 + yDisp));
+    self.imgViewCheckMark.frame = CGRectMake(self.circleProgressView.frame.origin.x + self.circleProgressView.frame.size.width/3,
+                                             self.circleProgressView.frame.origin.y + self.circleProgressView.frame.size.height/3,
+                                             self.imgViewCheckMark.frame.size.width,
+                                             self.imgViewCheckMark.frame.size.height);
     
     [self.contentView addSubview:self.imgViewCheckMark];
     self.checkmarkLayer.cornerRadius = KVNContentViewWithoutStatusCornerRadius;
