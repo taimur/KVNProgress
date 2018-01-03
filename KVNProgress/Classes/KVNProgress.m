@@ -29,6 +29,16 @@ typedef NS_ENUM(NSUInteger, KVNProgressState) {
 	KVNProgressStateDismissing
 };
 
+// return true if the device has a retina display, false otherwise
+#define IS_RETINA_DISPLAY() [[UIScreen mainScreen] respondsToSelector:@selector(scale)] && [[UIScreen mainScreen] scale] == 2.0f
+
+// return the scale value based on device's display (2 retina, 1 other)
+#define DISPLAY_SCALE IS_RETINA_DISPLAY() ? 1.0f : 1.0f
+
+// if the device has a retina display return the real scaled pixel size, otherwise the same size will be returned
+#define PIXEL_SIZE(size) IS_RETINA_DISPLAY() ? CGSizeMake(size.width/2.
+
+
 static CGFloat const KVNFadeAnimationDuration = 0.3f;
 static CGFloat const KVNLayoutAnimationDuration = 0.3f;
 static CGFloat const KVNTextUpdateAnimationDuration = 0.5f;
@@ -865,6 +875,8 @@ static KVNProgressConfiguration *configuration;
 	}
   
   UIImage *imgCheckMark = [UIImage imageNamed:@"checkmark-icon"];
+  //UIImage *scaledImage = [[UIImage alloc] initWithCGImage:imgCheckMark.CGImage scale:DISPLAY_SCALE orientation:UIImageOrientationUp];
+  
   self.imgViewCheckMark = [[UIImageView alloc] initWithImage:imgCheckMark];
   self.imgViewCheckMark.center = self.backgroundImageView.center;
   self.imgViewCheckMark.hidden = true;
@@ -1025,11 +1037,11 @@ static KVNProgressConfiguration *configuration;
     self.contentView.layer.shadowRadius = 80;
     self.contentView.layer.shadowPath = shadowPath.CGPath;
     
-    self.imgViewCheckMark.frame = CGRectMake(self.circleProgressView.frame.origin.x + self.circleProgressView.frame.size.width/3,
-                                             self.circleProgressView.frame.origin.y + self.circleProgressView.frame.size.height/3,
+    self.imgViewCheckMark.frame = CGRectMake(self.circleProgressView.frame.origin.x + self.circleProgressView.frame.size.width/4,
+                                             self.circleProgressView.frame.origin.y + self.circleProgressView.frame.size.height/4,
                                              self.imgViewCheckMark.frame.size.width,
                                              self.imgViewCheckMark.frame.size.height);
-    
+                                 
     [self.contentView addSubview:self.imgViewCheckMark];
     self.checkmarkLayer.cornerRadius = KVNContentViewWithoutStatusCornerRadius;
     self.imgViewCheckMark.hidden = true;
