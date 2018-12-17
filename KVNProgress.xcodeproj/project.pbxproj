@@ -31,7 +31,9 @@
 		140C0D7A1AE2DB8C0029C90A /* KVNUIImage_KVNEmptySpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 140C0D791AE2DB8C0029C90A /* KVNUIImage_KVNEmptySpec.m */; };
 		1482704A1AE2B4E500873272 /* KVNProgressConfigurationTestsSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 148270491AE2B4E500873272 /* KVNProgressConfigurationTestsSpec.m */; };
 		1482704E1AE2CBB100873272 /* KVNUIColor+KVNContrastSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 1482704D1AE2CBB100873272 /* KVNUIColor+KVNContrastSpec.m */; };
-		B7AEA695F14877870205F81C /* libPods-KVNProgressTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B43D6870AC5276C24F2B9384 /* libPods-KVNProgressTests.a */; };
+		D53A6684FF6414DD7F3D4C42 /* libPods-KVNProgress.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FB9829C9A562D243F950E5 /* libPods-KVNProgress.a */; };
+		F28B4AF4FB9658B07BF2C650 /* libPods-KVNProgressTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A402AA3631B9A18C512C3FCC /* libPods-KVNProgressTests.a */; };
+		F63243F621C7BEF000865E9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F63243F521C7BEF000865E9B /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		08FB9829C9A562D243F950E5 /* libPods-KVNProgress.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KVNProgress.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A5375791A45784200A7743C /* KVNProgressConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KVNProgressConfiguration.h; sourceTree = "<group>"; };
 		0A53757A1A45784200A7743C /* KVNProgressConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KVNProgressConfiguration.m; sourceTree = "<group>"; };
 		0A835D671AB339E900CB321A /* UIColor+KVNContrast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+KVNContrast.h"; sourceTree = "<group>"; };
@@ -77,12 +80,15 @@
 		0AA0DD2F1931EB3D00FDD29F /* UIImage+KVNEmpty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+KVNEmpty.m"; sourceTree = "<group>"; };
 		0ABBF9991D65E560004FED77 /* KVNRotationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KVNRotationViewController.h; sourceTree = "<group>"; };
 		0ABBF99A1D65E560004FED77 /* KVNRotationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KVNRotationViewController.m; sourceTree = "<group>"; };
-		10E934B976F6A716752C5786 /* Pods-KVNProgressTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KVNProgressTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KVNProgressTests/Pods-KVNProgressTests.debug.xcconfig"; sourceTree = "<group>"; };
 		140C0D791AE2DB8C0029C90A /* KVNUIImage_KVNEmptySpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KVNUIImage_KVNEmptySpec.m; sourceTree = "<group>"; };
 		148270491AE2B4E500873272 /* KVNProgressConfigurationTestsSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KVNProgressConfigurationTestsSpec.m; sourceTree = "<group>"; };
 		1482704D1AE2CBB100873272 /* KVNUIColor+KVNContrastSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "KVNUIColor+KVNContrastSpec.m"; sourceTree = "<group>"; };
-		AC926D9E042446C786108BC3 /* Pods-KVNProgressTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KVNProgressTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KVNProgressTests/Pods-KVNProgressTests.release.xcconfig"; sourceTree = "<group>"; };
-		B43D6870AC5276C24F2B9384 /* libPods-KVNProgressTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KVNProgressTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2CF3D9CAA0CD18DE849BE30F /* Pods-KVNProgress.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KVNProgress.release.xcconfig"; path = "Pods/Target Support Files/Pods-KVNProgress/Pods-KVNProgress.release.xcconfig"; sourceTree = "<group>"; };
+		7B00E4BC98AF2EE631D2886C /* Pods-KVNProgress.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KVNProgress.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KVNProgress/Pods-KVNProgress.debug.xcconfig"; sourceTree = "<group>"; };
+		94E73D7E448CC8D6DE582631 /* Pods-KVNProgressTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KVNProgressTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KVNProgressTests/Pods-KVNProgressTests.debug.xcconfig"; sourceTree = "<group>"; };
+		9D3315171CD4A437AE8B9E07 /* Pods-KVNProgressTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KVNProgressTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KVNProgressTests/Pods-KVNProgressTests.release.xcconfig"; sourceTree = "<group>"; };
+		A402AA3631B9A18C512C3FCC /* libPods-KVNProgressTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KVNProgressTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F63243F521C7BEF000865E9B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +99,7 @@
 				0AA0DCED1930DFAD00FDD29F /* CoreGraphics.framework in Frameworks */,
 				0AA0DCEF1930DFAD00FDD29F /* UIKit.framework in Frameworks */,
 				0AA0DCEB1930DFAD00FDD29F /* Foundation.framework in Frameworks */,
+				D53A6684FF6414DD7F3D4C42 /* libPods-KVNProgress.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,7 +110,7 @@
 				0AA0DD0A1930DFAD00FDD29F /* XCTest.framework in Frameworks */,
 				0AA0DD0C1930DFAD00FDD29F /* UIKit.framework in Frameworks */,
 				0AA0DD0B1930DFAD00FDD29F /* Foundation.framework in Frameworks */,
-				B7AEA695F14877870205F81C /* libPods-KVNProgressTests.a in Frameworks */,
+				F28B4AF4FB9658B07BF2C650 /* libPods-KVNProgressTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,7 +137,7 @@
 				0AA0DD0F1930DFAD00FDD29F /* KVNProgressTests */,
 				0AA0DCE91930DFAD00FDD29F /* Frameworks */,
 				0AA0DCE81930DFAD00FDD29F /* Products */,
-				CB962F7FECF6EC14A938952F /* Pods */,
+				E6C83563CAD9BF6DB598E6B7 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -150,7 +157,8 @@
 				0AA0DCEC1930DFAD00FDD29F /* CoreGraphics.framework */,
 				0AA0DCEE1930DFAD00FDD29F /* UIKit.framework */,
 				0AA0DD091930DFAD00FDD29F /* XCTest.framework */,
-				B43D6870AC5276C24F2B9384 /* libPods-KVNProgressTests.a */,
+				08FB9829C9A562D243F950E5 /* libPods-KVNProgress.a */,
+				A402AA3631B9A18C512C3FCC /* libPods-KVNProgressTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -229,15 +237,18 @@
 			isa = PBXGroup;
 			children = (
 				0AA0DD2C1930F76A00FDD29F /* KVNProgressView.xib */,
+				F63243F521C7BEF000865E9B /* Assets.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		CB962F7FECF6EC14A938952F /* Pods */ = {
+		E6C83563CAD9BF6DB598E6B7 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				10E934B976F6A716752C5786 /* Pods-KVNProgressTests.debug.xcconfig */,
-				AC926D9E042446C786108BC3 /* Pods-KVNProgressTests.release.xcconfig */,
+				7B00E4BC98AF2EE631D2886C /* Pods-KVNProgress.debug.xcconfig */,
+				2CF3D9CAA0CD18DE849BE30F /* Pods-KVNProgress.release.xcconfig */,
+				94E73D7E448CC8D6DE582631 /* Pods-KVNProgressTests.debug.xcconfig */,
+				9D3315171CD4A437AE8B9E07 /* Pods-KVNProgressTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -249,6 +260,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0AA0DD191930DFAD00FDD29F /* Build configuration list for PBXNativeTarget "KVNProgress" */;
 			buildPhases = (
+				7C8673458DB71BE7089F4196 /* [CP] Check Pods Manifest.lock */,
 				0AA0DD1F1930DFDC00FDD29F /* Check TODO, FIXME & XXX */,
 				0AA0DD201930E00E00FDD29F /* Build Number as Number of Commits */,
 				0AA0DCE31930DFAD00FDD29F /* Sources */,
@@ -268,11 +280,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0AA0DD1C1930DFAD00FDD29F /* Build configuration list for PBXNativeTarget "KVNProgressTests" */;
 			buildPhases = (
-				DC41A9A592169510FF8A06C2 /* Check Pods Manifest.lock */,
+				73DDB8D6BEA604F34FD38DB4 /* [CP] Check Pods Manifest.lock */,
 				0AA0DD041930DFAD00FDD29F /* Sources */,
 				0AA0DD051930DFAD00FDD29F /* Frameworks */,
 				0AA0DD061930DFAD00FDD29F /* Resources */,
-				D038DBEA28BFEA2790CC1FD6 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -330,6 +341,7 @@
 				0A85E7761932755300B16419 /* Images.xcassets in Resources */,
 				0AA0DCFE1930DFAD00FDD29F /* Main.storyboard in Resources */,
 				0AA0DD2D1930F76A00FDD29F /* KVNProgressView.xib in Resources */,
+				F63243F621C7BEF000865E9B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,34 +384,48 @@
 			shellPath = /bin/sh;
 			shellScript = "bundleVersion=$(git --git-dir=\"${PROJECT_DIR}/.git\" --work-tree=\"${PROJECT_DIR}\" rev-list HEAD | wc -l)\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $bundleVersion\" \"${PROJECT_DIR}/${PROJECT_NAME}/KVNProgress-Info.plist\"";
 		};
-		D038DBEA28BFEA2790CC1FD6 /* Copy Pods Resources */ = {
+		73DDB8D6BEA604F34FD38DB4 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
+			inputFileListPaths = (
 			);
-			name = "Copy Pods Resources";
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-KVNProgressTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KVNProgressTests/Pods-KVNProgressTests-resources.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DC41A9A592169510FF8A06C2 /* Check Pods Manifest.lock */ = {
+		7C8673458DB71BE7089F4196 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
+			inputFileListPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-KVNProgress-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -547,6 +573,7 @@
 		};
 		0AA0DD1A1930DFAD00FDD29F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7B00E4BC98AF2EE631D2886C /* Pods-KVNProgress.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -569,6 +596,7 @@
 		};
 		0AA0DD1B1930DFAD00FDD29F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2CF3D9CAA0CD18DE849BE30F /* Pods-KVNProgress.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -591,7 +619,7 @@
 		};
 		0AA0DD1D1930DFAD00FDD29F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 10E934B976F6A716752C5786 /* Pods-KVNProgressTests.debug.xcconfig */;
+			baseConfigurationReference = 94E73D7E448CC8D6DE582631 /* Pods-KVNProgressTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/KVNProgress.app/KVNProgress";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -614,7 +642,7 @@
 		};
 		0AA0DD1E1930DFAD00FDD29F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AC926D9E042446C786108BC3 /* Pods-KVNProgressTests.release.xcconfig */;
+			baseConfigurationReference = 9D3315171CD4A437AE8B9E07 /* Pods-KVNProgressTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/KVNProgress.app/KVNProgress";
 				FRAMEWORK_SEARCH_PATHS = (

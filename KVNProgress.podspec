@@ -9,13 +9,14 @@ Pod::Spec.new do |s|
   s.social_media_url   = "http://twitter.com/kevinh6113"
 
   s.platform     = :ios, '7.0'
+  s.static_framework = true
   s.source = {
     :git => "https://github.com/kevin-hirsch/KVNProgress.git",
     :tag => s.version.to_s
   }
 
   s.source_files  = "KVNProgress/Classes", "KVNProgress/Classes/**/*.{h,m}", "KVNProgress/Categories", "KVNProgress/Categories/**/*.{h,m}"
-  s.resources = "KVNProgress/Resources/*.{png,xib}"
+  s.resources = "KVNProgress/Resources/*.{png,xib,xcassets}"
 
   s.frameworks = "QuartzCore", "GLKit"
   s.requires_arc = true
